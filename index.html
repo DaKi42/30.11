@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <script>
+    "use strict";
+function findMin(a, b) {
+  return Math.min(a, b);
+}
+document.write("Min: " + findMin(10, 5) + "<br />");
+
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+document.write("Power: " + power(2, 3) + "<br />");
+
+function calculate(num1, num2, operator) {
+  if (operator === '+') {
+    return num1 + num2;
+  } else if (operator === '-') {
+    return num1 - num2;
+  } else if (operator === '*') {
+    return num1 * num2;
+  } else if (operator === '/') {
+
+    if (num2 !== 0) {
+      return num1 / num2;
+    } else {
+      return "на 0 не делим";
+    }
+  } else {
+    return "Неверный оператор";
+  }
+}
+document.write("Результат калькулятора: " + calculate(5, 3, '+') + "<br />");
+
+function isPrime(number) {
+      if (number <= 1) {
+        return false;
+      }
+      
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      
+      return true;
+    }
+    let Checknumber = 14;
+    document.write(Checknumber + " является простым числом: " + isPrime(Checknumber) + "<br />");
+
+ function multiplication(number) {
+    document.write("<h3>Таблица умножения для " + number + ":</h3>");
+    document.write("<table border='3'>");
+
+    for (let i = 1; i <= 10; i++) {
+        document.write("<tr>");
+        document.write("<td>" + number + " * " + i + "</td>");
+        document.write("<td>" + "=</td>");
+        document.write("<td>" + (number * i) + "</td>");
+        document.write("</tr>");
+    }
+
+      document.write("</table>");
+    }
+
+    for (let i = 2; i <= 9; i++) {
+      multiplication(i);
+    }
+
+    function OperatorModul(a, b) {
+        let result = a - Math.floor(a / b) * b;
+        document.write("Остаток от деления " + a + " на " + b + ": " + result + "<br />");
+    }
+    OperatorModul(16, 3);
+    OperatorModul(16, 2);
+    
+function Sum() {
+  let sum = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+
+  return sum;
+}
+    document.write("Сумма: " + Sum(1, 2, 3) + "<br />");
+
+
+    function findMax() {
+        let max = arguments[0];
+
+for (let i = 1; i < arguments.length; i++) {
+  if (arguments[i] > max) {
+    max = arguments[i];
+  }
+}
+return max;
+}
+document.write("Наибольшее число: " + findMax(4, 8, 2, 16, 3) + "<br />");
+
+function EvenOrNotEven(start, end, isEven) {
+
+  document.write("Числа в диапазоне" + start + " до " + end + (isEven ? "четные" : "нечетные") + ":<br>");
+
+  for (let i = start; i <= end; i++) {
+    if ((i % 2 === 0 && isEven) || (i % 2 !== 0 && !isEven)) {
+      document.write(i + "<br>");
+    }
+  }
+}
+
+EvenOrNotEven(2, 25, true); 
+EvenOrNotEven(3, 8, false); 
+
+function getNextDay(date, month, year) {
+  let currentDate = new Date(year, month - 1, date);
+  currentDate.setDate(currentDate.getDate() + 1);
+
+  let newDate = currentDate.getDate();
+  let newMonth = currentDate.getMonth() + 1;
+  let newYear = currentDate.getFullYear();
+
+  newDate = newDate < 10 ? '0' + newDate : newDate;
+  newMonth = newMonth < 10 ? '0' + newMonth : newMonth;
+
+  let result = newDate + '.' + newMonth + '.' + newYear;
+  document.write(result);
+}
+
+getNextDay(30, 11, 2023);
+  </script>
+</body>
+</html>
